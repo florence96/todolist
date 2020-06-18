@@ -42,7 +42,7 @@ $(document).ready(function() {
 			}
 			for(var i = 0, len = list.length || 0; i < len; i++){
 				
-                str += "<div class = 'block'><div><input type='checkbox' id='ch'><label for = 'ch'></label></div>";
+                str += "<div class = 'block'><div><input type='checkbox' id="+list[i].con_num+"><label for = "+list[i].con_num+"></label></div>";
                 str += "<div>"+list[i].con_content+"</div>";
                 str += "</div>";
                 
