@@ -5,7 +5,7 @@
 //let day = today.getDay();
 $(".left").click(function(){location.reload();})
 
-        //todoList 받아오기
+//todoList 받아오기 AJAX
 var todoService = (function(){
         function todoList(param, callback){
         	$.getJSON("/todo", function(data){
@@ -23,6 +23,7 @@ var todoService = (function(){
         }
 })();
 
+//List 받아오기 jquery
 $(document).ready(function() {
 	
 	var con_content;
@@ -64,32 +65,57 @@ $(document).ready(function() {
 		});
 	}
 });
-//$(function(){
-//    var pl = $(".pl");
 
-//    	//todo 입력하기(보내주기)
-//    	function todoWrite(param, callback){
-//	        $.ajax({
-//	            type: 'post',
-//	            url: '/todo', 
-//	            data: JSON.stringify(param),
-//	            contentType: "application/json; charset = utf-8",
-//	            success: function(){
-//	                console.log("todo가 입력되었습니다.");
-//	                if(error){
-//	                    error(err);
-//	                }
-//	            },
-//	                error: function(xhr, status, err){
-//	                	console.log("todo 입력오류");
-//	                	if(error){
-//	                		error(err);
-//	                	}
-//	                }
-//	        });
-//    	}
-        
-
+    	//todo 입력하기(보내주기) AJAX
+    	function todoWrite(param, callback, error){
+	        $.ajax({
+	            url: '/todo', 
+	            data: JSON.stringify(param),
+	            contentType: "application/json; charset = utf-8",
+	            cache : false,
+	            async : true,
+	            type   : "POST",
+	            success: function(){
+	                console.log("todo가 입력되었습니다.");
+	                if(callback){
+	                   	callback(result);
+	                }
+	            },
+	                error: function(xhr, status, err){
+	                	console.log("todo 입력오류");
+	                	if(error){
+	                		error(err);
+	                	}
+	                }
+	        });
+    	}
+    	//todo 입력하기(보내주기) jquery
+    	var plus = $(".pl");
+    	
+    	plus.click(function(){
+    		
+    		var con_content = $("#addatodo").val();
+    		
+    		if(con_content == ""){
+    			alert("내용을 입력해주세요.");
+    			$("#addatodo").focus();
+    			return;
+    		}
+    		
+    		var con = confirm("내용을 등록하시겠습니까?");
+    		if(con){
+    			todoWrite({
+    				"con_content": con_content,
+    				"con_status": 1,
+    			}, function(result){
+    				alert("내용이 등록되었습니다.")
+    			})
+    			location.reload();
+    		}else{
+    			alert("내용 등록이 실패하였습니다. 다시 시도해주세요.");
+    			return;
+    		}
+});
     
 //        //todo Delete하기
 //        function todoDelete(con_num, callback){

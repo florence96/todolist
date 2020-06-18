@@ -37,7 +37,7 @@ html, body{
     display: flex;
     align-items: center;
 }
-#search{
+#addatodo{
     background-color: #F1F3F2;
     width: 20rem;
     height: 2.5rem;

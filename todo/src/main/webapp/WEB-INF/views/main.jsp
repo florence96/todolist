@@ -16,7 +16,7 @@
         </div>
         <div class="navbar">
             <div class="searchbar">
-                <input id = "search" type="text" value = "Add a Todo">
+                <input id = "addatodo" type="text" value = "Add a Todo">
                 <img src = "../resources/img/plus.png" class = "pl">
             </div>
            <!--  <table>

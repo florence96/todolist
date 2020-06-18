@@ -10,12 +10,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.text.todo.domain.ContentDTO;
+import com.text.todo.domain.ContentVO;
 import com.text.todo.service.todoService;
 
 import lombok.AllArgsConstructor;
@@ -38,13 +40,13 @@ public class todoController {
 	return new ResponseEntity<ContentDTO>(service.todoList(),HttpStatus.OK);
 	}
 	
-//	//글 작성하기
-//	@PostMapping(value = "/", consumes = "application/json", produces = {MediaType.TEXT_PLAIN_VALUE})
-//	public ResponseEntity<String> todoWrite(@RequestBody ContentVO vo){
-//		log.info("contentWrite Controller");
-//		
-//		service.todoWrite(vo);
-//		return new ResponseEntity<>(HttpStatus.OK);
-//	}
+	//글 작성하기
+	@PostMapping(value = "/todo", consumes = "application/json", produces = {MediaType.TEXT_PLAIN_VALUE})
+	public ResponseEntity<String> todoWrite(@RequestBody ContentVO vo){
+		log.info("contentWrite Controller");
+		
+		service.todoWrite(vo);
+		return new ResponseEntity<String>(HttpStatus.OK);
+	}
 	
 }

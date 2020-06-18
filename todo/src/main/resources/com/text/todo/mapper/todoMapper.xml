@@ -20,6 +20,6 @@
 
 <insert id = "todoWrite">
 	INSERT INTO content
-	VALUES (#{con_num}, #{con_content}, TO_CHAR(sysdate, 'YYYY-MM-DD'), #{con_status})
+	VALUES (content_seq.nextval, #{con_content}, #{con_status})
 </insert>
 </mapper>
