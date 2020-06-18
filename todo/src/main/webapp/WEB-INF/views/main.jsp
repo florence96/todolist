@@ -19,7 +19,7 @@
                 <input id = "search" type="text" value = "Add a Todo">
                 <img src = "../resources/img/plus.png" class = "pl">
             </div>
-            <table>
+           <!--  <table>
                 <td>
                     <button class ="Lbutton" type = "button">&lt;</button>
                 </td>
@@ -46,7 +46,7 @@
                 <td class="td">
                     <button class ="Rbutton" type = "button">&gt;</button>
                 </td>
-            </table>
+            </table> -->
         </div>
         <!--본문 영역-->
         <div class = "main">

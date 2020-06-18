@@ -34,26 +34,31 @@ $(document).ready(function() {
 
 		todoService.todoList({
 		}, function(list){
+			
 			var str = "";
+			
 			if(list == null || list.length == 0) {
 				return;
 			}
 			for(var i = 0, len = list.length || 0; i < len; i++){
+				
+                str += "<div class = 'block'><div><input type='checkbox' id='ch'><label for = 'ch'></label></div>";
+                str += "<div>"+list[i].con_content+"</div>";
+                str += "</div>";
+                
 				 if(list[i].con_status == 1){
-	                  str += "<div class = 'block'><div><input type='checkbox' id='ch'><label for = 'ch'></label></div>";
-	                  str += "<div>"+list[i].con_content+"</div>";
-	                  str += "</div>";
 	                  $(".todocontent").html(str);
+	  				console.log("todo 상태값은 ="+list[i].con_status);
 	              }else if(list[i].con_status == 2){
-	            	  str += "<div class = 'block'><div><input type='checkbox' id='ch'><label for = 'ch'></label></div>";
-	                  str += "<div>"+list[i].con_content+"</div>";
-	                  str += "</div>";
 	                  $(".doingcontent").html(str);
+	  				console.log("doing 상태값은 ="+list[i].con_status);
+	  				if(list[i+1].con_status != 2 || null)
+	  					var str = "";
 	              }else if(list[i].con_status == 3){
-	            	  str += "<div class = 'block'><div><input type='checkbox' id='ch'><label for = 'ch'></label></div>";
-	                  str += "<div>"+list[i].con_content+"</div>";
-	                  str += "</div>";
 	                  $(".donecontent").html(str);
+	  				console.log("done 상태값은 ="+list[i].con_status);
+	  				if(list[i+1].con_status != 3 || null)
+	  					var str = "";
 	              }
 			}
 		});
