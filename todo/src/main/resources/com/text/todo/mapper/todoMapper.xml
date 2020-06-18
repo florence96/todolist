@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace = "com.text.todo.mapper.todoMapper">
+
+<select id = "todoList" resultType = "com.text.todo.domain.ContentVO">
+<![CDATA[
+	SELECT con_num, con_content, con_status
+	FROM(
+		SELECT /*+INDEX_DESC(content pk_content) */
+		rownum, con_num, con_content, con_status
+		FROM
+			content
+		WHERE rownum > 0
+		)
+	]]>	
+</select>
+
+<insert id = "todoWrite">
+	INSERT INTO content
+	VALUES (#{con_num}, #{con_content}, TO_CHAR(sysdate, 'YYYY-MM-DD'), #{con_status})
+</insert>
+</mapper>

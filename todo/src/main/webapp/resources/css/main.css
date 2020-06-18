@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap&subset=korean');
+
+html, body{
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-color: #E6E8E8;
+    margin: 0;
+    min-width: 1300px;
+    font-family: 'Work Sans', sans-serif;
+}
+
+.container .top{
+    background-color: #4D5663;
+    position: relative;
+    top:0;
+    height: 3rem;
+    width: 100%;
+    color: #B4BAC4;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+.left, .right{
+    margin: 0 2rem
+}
+.right{
+    position: absolute;
+    right: 0;
+}
+.navbar{
+    display: flex;
+}
+.container .searchbar{
+    width: 100%;
+    height: 5rem;
+    display: flex;
+    align-items: center;
+}
+#search{
+    background-color: #F1F3F2;
+    width: 20rem;
+    height: 2.5rem;
+    margin: 0 1rem 0 3rem;
+    padding: 0 2rem;
+    border-color: fff;
+    border: none;
+    border-radius: 0.2rem;
+    color: #646F80;
+}
+
+.navbar table{
+    border-collapse: collapse;
+    margin-right: 5rem;
+    right: 0;
+}
+.navbar table td{
+    position: relative;
+    height: 4rem;
+    min-width: 6rem;
+    max-width: 5rem;
+    text-align: center;
+    padding: 0.5rem;
+    border-right: 0.15rem solid #CED3DC;
+}
+.Lbutton, .Rbutton{
+    border: none;
+    background-color: #E6E8E8;
+    color: #67768b;
+    font-size: 2rem;
+}
+/*덮어씌우기*/
+.navbar table .td{
+    border-right:none;
+}
+.today{
+    background-color: #DB6767;
+}
+.today span{
+    color: #F2D4D3;
+}
+.day{
+    font-size: 1.5rem;
+    color: #646F80;
+}
+.month{
+    font-size: 1rem;
+    color: #67768b;
+}
+/*추가 달력*/
+.cal{
+    width: 100%;
+    height: 3rem;
+    margin-top: 1rem;
+}
+.cal img{
+    position: absolute;
+    right:0;
+    padding-right: 2rem;
+}
+/*본문영역*/
+.main{
+    position: relative;
+    width: 100%;
+    min-height:45rem;
+    display: flex;
+}
+.first, .second, .third{
+    width: 33%;
+    height: 100%;
+    display: flex;
+    border: none;
+    padding: 2rem;
+}
+.wrap{
+    width: 100%;
+    height: auto;
+    display: inline-block;
+    border: 0.2rem solid #CED3DC;
+    border-radius: 0.3rem;
+}
+.wrap .todo, .doing, .done{
+    width: 100%;
+    height: 2.5rem;
+    border: none;
+    padding-top: 0.7rem;
+    display:inline-block;
+    color: #58657A;
+    font-size: 1.5rem;
+    text-align: center;
+    vertical-align: middle;
+}
+.wrap .todo{
+    background-color: #82CFD2;
+}
+.wrap .doing{
+    background-color: #DED678;
+}
+.wrap .done{
+    background-color: #80CF87;
+}
+.wrap .add{
+    width: 100%;
+    height: 3rem;
+    border: none;
+    text-align: center;
+    display: inline-block;
+}
+.add button{
+    color: #58657A;
+    font-size: 2rem;
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    border: none;
+    background-color: #AAB3C2;
+}
+.bd{
+    width:100%;
+    min-height: 2rem;
+    padding: 2rem 0;
+    border:none;
+    display: inline-block;
+    background-color: #F2F2F2;
+}
+.todocontent, .doingcontent, .donecontent{
+    width: 90%;
+    min-height: 2rem;
+    margin: auto;
+}
+.todocontent .block, .doingcontent .block, .donecontent .block{
+    position: relative;
+    width: 90%;
+    padding: 1rem;
+    height: 100%;
+    margin: 0.5rem 0;
+    background-color: #fff;
+    border: 0.1rem solid #CED3DC;
+    border-radius: 0.2rem;
+    display: flex;
+}
+input[id="ch"] + label{
+    margin-right: 1rem;
+    display: inline-block;
+    width: 0.8rem;
+    height: 0.8rem;
+    border: 0.1rem solid #CED3DC;
+    cursor: pointer;
+}
+input[id="ch"]:checked + label:after { content: '\2714'; font-size: 15px; }
+input[id="ch"] { display: none; }
+/*footer영역*/
+.footer{
+    position: absolute;
+    bottom:-6rem;
+    background-color: #4D5663;
+    height: 2rem;
+    width: 100%;
+    color: #fff;
+    margin: 0;
+    text-align: center;
+}
