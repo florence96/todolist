@@ -14,8 +14,10 @@
 		FROM
 			content
 		WHERE rownum > 0
-		ORDER BY con_status DESC
+				ORDER BY
+		con_status DESC
 		)
+
 	]]>	
 </select>
 
