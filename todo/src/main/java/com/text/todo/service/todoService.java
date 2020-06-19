@@ -13,4 +13,6 @@ public interface todoService {
 	public void todoWrite(ContentVO vo);
 	
 	public void todoUpdate(ContentVO vo);
+	
+	public int todoDelete(int con_num);
 }

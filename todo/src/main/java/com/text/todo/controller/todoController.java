@@ -5,15 +5,19 @@ import java.sql.Date;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.apache.ibatis.annotations.Delete;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.text.todo.domain.ContentDTO;
@@ -54,5 +58,12 @@ public class todoController {
 	public ResponseEntity<String> todoUpdate(@RequestBody ContentVO vo){
 		service.todoUpdate(vo);
 		return new ResponseEntity<String>(HttpStatus.OK);
+	}
+	
+	@DeleteMapping(value ="/todo/{con_num}", produces = {MediaType.TEXT_PLAIN_VALUE})
+	public ResponseEntity<String> todoDelete(@PathVariable("con_num") int con_num){
+		log.info("todo delete controller");
+		service.todoDelete(con_num);
+		return new ResponseEntity<String>("success", HttpStatus.OK);
 	}
 }

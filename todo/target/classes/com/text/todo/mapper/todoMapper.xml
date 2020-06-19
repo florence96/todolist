@@ -30,4 +30,7 @@
 	update content set con_status = #{con_status} where con_num = #{con_num}
 </update>
 
+<delete id = "todoDelete">
+	delete content where con_num = #{con_num}
+</delete>
 </mapper>

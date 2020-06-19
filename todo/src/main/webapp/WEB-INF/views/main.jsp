@@ -91,7 +91,7 @@
                     </div>
                     </div>
                     <div class = "add">
-                        <button>-</button>
+                        <button id = "del">-</button>
                     </div>
                 </div>
             </div>

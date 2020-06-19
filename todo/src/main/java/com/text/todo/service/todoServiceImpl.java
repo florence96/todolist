@@ -36,4 +36,10 @@ public class todoServiceImpl implements todoService{
 		// TODO Auto-generated method stub
 	mapper.todoUpdate(vo);
 	}
+
+	@Override
+	public int todoDelete(int con_num) {
+		// TODO Auto-generated method stub
+		return mapper.todoDelete(con_num);
+	}
 }
