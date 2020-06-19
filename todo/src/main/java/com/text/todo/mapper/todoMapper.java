@@ -12,4 +12,6 @@ public interface todoMapper {
 	public List<ContentVO> todoList();
 	
 	public void todoWrite(ContentVO vo);
+	
+	public void todoUpdate(ContentVO vo);
 }

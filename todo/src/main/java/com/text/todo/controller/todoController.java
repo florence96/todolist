@@ -49,4 +49,10 @@ public class todoController {
 		return new ResponseEntity<String>(HttpStatus.OK);
 	}
 	
+	@RequestMapping(method = { RequestMethod.PUT, RequestMethod.PATCH }, value = "/todo",
+			consumes = "application/json", produces = {MediaType.TEXT_PLAIN_VALUE })
+	public ResponseEntity<String> todoUpdate(@RequestBody ContentVO vo){
+		service.todoUpdate(vo);
+		return new ResponseEntity<String>(HttpStatus.OK);
+	}
 }

@@ -61,7 +61,7 @@
                         </div>
                     </div>
                     <div class = "add">
-                        <button id = "gt">&gt;</button>
+                        <button id = "gt1">&gt;</button>
                     </div>
                 </div>
             </div>
@@ -76,7 +76,7 @@
                     </div>
                     </div>
                     <div class = "add">
-                        <button id = "gt">&gt;</button>
+                        <button id = "gt2">&gt;</button>
                     </div>
                 </div>
             </div>

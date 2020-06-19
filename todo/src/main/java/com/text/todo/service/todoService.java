@@ -11,4 +11,6 @@ public interface todoService {
 	public ContentDTO todoList();
 	
 	public void todoWrite(ContentVO vo);
+	
+	public void todoUpdate(ContentVO vo);
 }

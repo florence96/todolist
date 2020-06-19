@@ -30,4 +30,10 @@ public class todoServiceImpl implements todoService{
 	public void todoWrite(ContentVO vo) {
 	mapper.todoWrite(vo);
 	}
+
+	@Override
+	public void todoUpdate(ContentVO vo) {
+		// TODO Auto-generated method stub
+	mapper.todoUpdate(vo);
+	}
 }

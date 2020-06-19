@@ -9,11 +9,12 @@
 <![CDATA[
 	SELECT con_num, con_content, con_status
 	FROM(
-		SELECT /*+INDEX_DESC(content pk_content) */
+		SELECT
 		rownum, con_num, con_content, con_status
 		FROM
 			content
 		WHERE rownum > 0
+		ORDER BY con_status DESC
 		)
 	]]>	
 </select>
@@ -22,4 +23,9 @@
 	INSERT INTO content
 	VALUES (content_seq.nextval, #{con_content}, #{con_status})
 </insert>
+
+<update id = "todoUpdate">
+	update content set con_status = #{con_status} where con_num = #{con_num}
+</update>
+
 </mapper>

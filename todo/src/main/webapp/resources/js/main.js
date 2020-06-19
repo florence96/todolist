@@ -43,29 +43,29 @@ $(document).ready(function() {
 			}
 			for(var i = 0, len = list.length || 0; i < len; i++){
 				
-                str += "<div class = 'block'><div><input type='checkbox' id="+list[i].con_num+"><label for = "+list[i].con_num+"></label></div>";
+                str += "<div class = 'block'><div><input type='checkbox' id="+list[i].con_num+" name = 'ck' value = "+list[i].con_num+"><label for = "+list[i].con_num+"></label></div>";
                 str += "<div>"+list[i].con_content+"</div>";
                 str += "</div>";
                 
-				 if(list[i].con_status == 1){
-	                  $(".todocontent").html(str);
-	  				console.log("todo 상태값은 ="+list[i].con_status);
+				 if(list[i].con_status == 3){
+	                  $(".donecontent").html(str);
+	  				console.log("done 상태값은 ="+list[i].con_status);
+	  				if(list[i+1].con_status !=3)
+	  					str = "";
 	              }else if(list[i].con_status == 2){
 	                  $(".doingcontent").html(str);
 	  				console.log("doing 상태값은 ="+list[i].con_status);
-	  				if(list[i+1].con_status != 2 || null)
-	  					var str = "";
-	              }else if(list[i].con_status == 3){
-	                  $(".donecontent").html(str);
-	  				console.log("done 상태값은 ="+list[i].con_status);
-	  				if(list[i+1].con_status != 3 || null)
-	  					var str = "";
+	  				if(list[i+1].con_status !=2)
+	  					str = "";
+	              }else if(list[i].con_status == 1){
+	                  $(".todocontent").html(str);
+	  				console.log("todo 상태값은 ="+list[i].con_status);
 	              }
 			}
 		});
 	}
 });
-
+//------------------------------------------------------------------------------------
     	//todo 입력하기(보내주기) AJAX
     	function todoWrite(param, callback, error){
 	        $.ajax({
@@ -116,7 +116,78 @@ $(document).ready(function() {
     			return;
     		}
 });
-    
+//-------------------------------------------------------------------------
+    	
+   //content > 버튼 눌렀을 때 수정하기 ajax
+    	function todoUpdate(param, callback, error){
+    		$.ajax({
+    			type : 'PUT',
+    			url : '/todo',
+    			data: JSON.stringify(param),
+    			contentType : "application/json; charset = utf-8",
+    			success : function(result, status, xhr){
+    				if(callback){
+    					callback(result);
+    				}
+    			},
+    			error : function(xhr, status, err){
+    				if(error){
+    					error(err);
+    				}
+    			}
+    		});
+    	}
+    	
+    	var todoButton = $("#gt1");
+    	
+    	todoButton.click(function(){
+    		
+    		if($("input:checkbox[name = 'ck']:checked").length == 0){
+    			alert("선택한 내용이 없습니다.");
+    		}
+    		else if($("input:checkbox[name = 'ck']:checked").length == 1){
+        		var con_num = $("input:checkbox[name='ck']:checked").val();
+        		
+        		console.log("체크된 valeu값은 "+con_num);
+        		
+        		todoUpdate({
+        			"con_status" : 2,
+        			"con_num" : con_num,
+        		}, function(result){
+        			alert("상태가 doing으로 변경되었습니다.");
+        		})
+        		location.reload();
+        		
+    		}else{
+    			alert("한개만 선택해주세요.");
+    		}
+    	});
+    		var doingButton = $("#gt2");
+        	
+        	doingButton.click(function(){
+        		
+        		if($("input:checkbox[name = 'ck']:checked").length == 0){
+        			alert("선택한 내용이 없습니다.");
+        		}
+        		else if($("input:checkbox[name = 'ck']:checked").length == 1){
+            		var con_num = $("input:checkbox[name='ck']:checked").val();
+            		
+            		console.log("체크된 valeu값은 "+con_num);
+            		
+            		todoUpdate({
+            			"con_status" : 3,
+            			"con_num" : con_num,
+            		}, function(result){
+            			alert("상태가 done으로 변경되었습니다.");
+            		})
+            		location.reload();
+            		
+        		}else{
+        			alert("한개만 선택해주세요.");
+        		}
+    	});
+//    	var doingButton = $(".gt2");
+    	
 //        //todo Delete하기
 //        function todoDelete(con_num, callback){
 //        	$.ajax({
