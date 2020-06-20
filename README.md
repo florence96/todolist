@@ -10,7 +10,7 @@
 ## 목표
 - javascrpit와 ajax의 구동 원리를 이해한다.
 
-## 사용 기술(예정)
+## 사용 기술
 - Front: Html5, Css3, Bootstrap, Javascript, Ajax
 - Back: Java, Spring, Restful, Mybatis
 
