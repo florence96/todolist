@@ -14,8 +14,8 @@
 - Front: Html5, Css3, Bootstrap, Javascript, Ajax
 - Back: Java, Spring, Restful, Mybatis
 
-## 구조(예정)
-- 1페이지: 할일, 진행중, 완료된 일
+## 구조
+- 1페이지: 할일(todo), 진행중(doing), 완료된 일(done)
 
 ## 진행상황(완료)
 - html, css 를 이용해 메인화면 구현 (완료) 6/11
