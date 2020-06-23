@@ -11,7 +11,7 @@
 - javascrpit와 ajax의 구동 원리를 이해한다.
 
 ## 사용 기술
-- Front: Html5, Css3, Bootstrap, Javascript, Ajax
+- Front: Html5, Css3, Javascript, Ajax
 - Back: Java, Spring, Restful, Mybatis
 
 ## 구조
